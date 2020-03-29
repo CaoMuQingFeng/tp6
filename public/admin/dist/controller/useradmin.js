@@ -14,37 +14,37 @@ layui.define(["table", "form"], function(e) {
 				fixed: "left"
 			}, {
 				field: "id",
-				width: 100,
+				width: 70,
 				title: "ID",
 				sort: !0
 			
  			}, {
 				field: "username",
 				title: "用户名",
-				minWidth: 100
 			}, {
 				field: "password",
 				title: "密码",
-				width: 100,
 			}, {
-				field: "password_salt",
-				title: "密码盐"
+				field: "email",
+				title: "邮箱"
 			}, {
 				field: "last_login_ip",
 				title: "上次登录ip"
 			}, {
 				field: "last_login_time",
-				title: "上次登录时间"
+				title: "上次登录时间",
+				sort: !0
 			}, {
 				field: "creat_time",
-				title: "创建时间"
+				title: "创建时间",
+				sort: !0
 			}, {
 				field: "update_time",
 				title: "上次更新时间",
 				sort: !0
 			}, {
 				title: "操作",
-				width: 150,
+				width: 180,
 				align: "center",
 				fixed: "right",
 				toolbar: "#table-useradmin-webuser"
@@ -68,7 +68,7 @@ layui.define(["table", "form"], function(e) {
 			area: ["500px", "450px"],
 			id: "LAY-popup-user-add",
 			success: function(e, i) {
-				t(this.id).render("user/user/userform", l).done(function() {
+				t(this.id).render("user_control/user_list/user_form", l).done(function() {
 					r.render(null, "layuiadmin-form-useradmin"), r.on("submit(LAY-user-front-submit)", function(e) {
 						e.field;
 						layui.table.reload("LAY-user-manage"), layer.close(i)

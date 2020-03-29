@@ -9,7 +9,7 @@ class AdminMenu
 		$data = 
 		[
 			"code"	=>	0,
-			"msg"	=>	"0",
+			"msg"	=>	"",
 			"data"	=>	
 			[
 				[
