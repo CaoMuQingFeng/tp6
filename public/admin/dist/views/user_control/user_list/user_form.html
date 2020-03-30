@@ -69,9 +69,8 @@ layui.use(['admin', 'form', 'upload'], function(){
   upload.render({
     elem: '#layuiadmin-upload-useradmin'
     ,url: 'Upload/getUserAvatar'
-    ,accept: 'file'
-    ,method: 'post'
-    // ,acceptMime: 'image/*'
+    ,accept: 'images'
+    ,acceptMime: 'image/*'
     ,done: function(res){
       $(this.item).prev("div").children("input").val(res.data.src)
     }
