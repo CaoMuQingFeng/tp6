@@ -35,15 +35,17 @@ class AdminUser
 		return json($data);
 
 	}
-	public function disposeInputData()
+	public function saveInputData()
 	{
-		$getData = Request::param();
+		$getData = Request::instance()->param();
+		$data = $getData['data'];
+		$username = $data['username'];
 		$data = [
 			'code'	=> 0,
 			'msg'	=> 'ok',
-			'data'	=> $getData
+			'data'	=> $data
 		];
-		return json($data);
+		return $data;
 	}
 }
 

@@ -135,19 +135,20 @@ layui.use('useradmin', layui.factory('useradmin')).use(['admin', 'useradmin', 't
             
             //监听提交
             form.on('submit(LAY-user-front-submit)', function(data){
+              console.log(data)
               var field = data.field; //获取提交的字段
 
               //提交 Ajax 成功后，关闭当前弹层并重载表格
               //$.ajax({});
-              // admin.req({
-              //   url:'AdminUser/disposeInputData',
-              //   data:'field',
-              //   type:'post',
-              //   success:function(res){
-              //     console.log(res)
-              //   }
+              admin.req({
+                url:'AdminUser/saveInputData',
+                data:field,
+                type:'post',
+                success:function(res){
+                  console.log(res)
+                }
 
-              // })
+              })
               layui.table.reload('LAY-user-manage'); //重载表格
               layer.close(index); //执行关闭 
             });
