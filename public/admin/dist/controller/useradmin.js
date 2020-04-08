@@ -30,8 +30,8 @@ layui.define(['table', 'form'], function(exports){
         ,{field: 'email', title: '邮箱'}
         ,{field: "last_login_ip",title: "上次登录ip"}
         ,{field: "last_login_time",title: "上次登录时间",sort: true}
-        ,{field: "creat_time",title: "创建时间",sort: true}
         ,{field: "update_time",title: "上次更新时间",sort: true}
+        ,{field: "create_time",title: "创建时间",sort: true}
         ,{title: '操作', width: 150, align:'center', fixed: 'right', toolbar: '#table-useradmin-webuser'}
     ]]
     ,page: true
@@ -61,7 +61,7 @@ layui.define(['table', 'form'], function(exports){
         ,area: ['500px', '450px']
         ,id: 'LAY-popup-user-add'
         ,success: function(layero, index){
-          view(this.id).render('user/user/userform', data).done(function(){
+          view(this.id).render('user_control/user_list/user_form', data).done(function(){
             form.render(null, 'layuiadmin-form-useradmin');
             
             //监听提交
@@ -70,6 +70,15 @@ layui.define(['table', 'form'], function(exports){
 
               //提交 Ajax 成功后，关闭当前弹层并重载表格
               //$.ajax({});
+              admin.req({
+                url:'AdminUser/saveInputData',
+                data:field,
+                type:'post',
+                success:function(res){
+                  // console.log(res)
+                }
+
+              })
               layui.table.reload('LAY-user-manage'); //重载表格
               layer.close(index); //执行关闭 
             });

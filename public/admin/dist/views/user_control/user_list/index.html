@@ -80,7 +80,8 @@ layui.use('useradmin', layui.factory('useradmin')).use(['admin', 'useradmin', 't
   ,admin = layui.admin
   ,view = layui.view
   ,table = layui.table
-  ,form = layui.form;
+  ,form = layui.form
+  ,layer = layui.layer;
   
   form.render(null, 'layadmin-userfront-formlist');
   
@@ -145,10 +146,17 @@ layui.use('useradmin', layui.factory('useradmin')).use(['admin', 'useradmin', 't
                 data:field,
                 type:'post',
                 success:function(res){
-                  console.log(res)
+                  layer.msg('添加成功')
                 }
-
               })
+              // admin.req({
+              //   url:'Upload/disposeUserAvatar'
+              //   data:field,
+              //   type:'post',
+              //   success:function(res){
+              //     layer.msg('添加成功')
+              //   }
+              // })
               layui.table.reload('LAY-user-manage'); //重载表格
               layer.close(index); //执行关闭 
             });
